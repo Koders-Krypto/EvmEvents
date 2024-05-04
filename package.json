@@ -1,0 +1,49 @@
+{
+    "name": "@decloudlabs/event-processor-service",
+    "version": "0.0.3",
+    "main": "lib/index.js",
+    "types": "types/index.d.ts",
+    "publishConfig": {
+        "access": "public"
+    },
+    "scripts": {
+        "start1": "NODE_ENV=production PORT=8001 SUBNET_ID=1 nodemon ./src/index ",
+        "dev": "nodemon src/index.ts",
+        "test": "mocha --timeout 30000 ./test/**/*.js --exit",
+        "build": "npx tsc",
+        "start": "node dist/index.js"
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "@decloudlabs/stk-v2": "^0.0.60",
+        "@decloudlabs/test-package": "^1.0.0",
+        "@metamask/eth-sig-util": "^4.0.1",
+        "@nucypher/umbral-pre": "0.7.0",
+        "axios": "^0.27.2",
+        "bs58": "^5.0.0",
+        "cors": "^2.8.5",
+        "dotenv": "^16.0.1",
+        "ethereumjs-util": "^7.1.5",
+        "ethers": "^5.0.32",
+        "express": "^4.18.2",
+        "joi": "^17.11.0",
+        "lodash": "^4.17.21",
+        "mongodb": "^5.7.0",
+        "ts-node": "^10.9.1",
+        "url-regex": "^5.0.0",
+        "uuid": "^9.0.0",
+        "web3": "^1.8.2",
+        "ws": "^8.13.0"
+    },
+    "devDependencies": {
+        "@types/express": "^4.17.17",
+        "@types/node": "^20.4.5",
+        "chai": "^4.3.7",
+        "concurrently": "^8.2.0",
+        "mocha": "^10.1.0",
+        "nodemon": "^2.0.19",
+        "prettier": "3.0.0",
+        "typescript": "^5.1.6"
+    }
+}
