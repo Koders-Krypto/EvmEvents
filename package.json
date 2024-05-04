@@ -1,6 +1,6 @@
 {
-    "name": "@decloudlabs/event-processor-service",
-    "version": "0.0.3",
+    "name": "@kryptokoders/evmevents",
+    "version": "0.0.2",
     "main": "lib/index.js",
     "types": "types/index.d.ts",
     "publishConfig": {

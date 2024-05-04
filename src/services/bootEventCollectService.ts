@@ -81,24 +81,29 @@ export class BootEventCollectService implements COService {
 
         const eventList = logDataList
             .map((log) => {
-                const blockNumber = log.blockNumber;
-                const topicList: string[] = log.topics.map((x) => x);
-                const events = OrderPayment.interface.parseLog({
-                    topics: topicList,
-                    data: log.data,
-                });
+                try {
+                    const blockNumber = log.blockNumber;
+                    const topicList: string[] = log.topics.map((x) => x);
+                    const events = OrderPayment.interface.parseLog({
+                        topics: topicList,
+                        data: log.data,
+                    });
 
-                const filter = events.topic;
-                const params = events.args;
+                    const filter = events.topic;
+                    const params = events.args;
 
-                if (!this.eventProcessor.filterToParamMap[filter]) return null;
+                    if (!this.eventProcessor.filterToParamMap[filter])
+                        return null;
 
-                const nftEvent = this.eventProcessor.filterToParamMap[filter](
-                    blockNumber,
-                    params,
-                );
+                    const nftEvent = this.eventProcessor.filterToParamMap[
+                        filter
+                    ](blockNumber, params);
 
-                return nftEvent;
+                    return nftEvent;
+                } catch (err) {
+                    console.log("fetch error: ", err);
+                    return null;
+                }
             })
             .filter((event) => event != null);
 
