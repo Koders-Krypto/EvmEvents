@@ -1,0 +1,10 @@
+.env
+.env.production
+.env.development
+node_modules/
+test.js
+.prettierrc
+tests
+dist
+tests
+lib
